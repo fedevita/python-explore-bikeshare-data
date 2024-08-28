@@ -1,0 +1,15 @@
+# docker-compose.yml
+
+version: "3"
+
+services:
+  jupyter:
+    build: .
+    image: jupyter-with-latex:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./work:/home/jovyan/work
+    container_name: jupyter
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
